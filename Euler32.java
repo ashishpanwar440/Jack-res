@@ -1,9 +1,8 @@
-import java.util.HashSet;
-public class Euler32{
+public class HelloWorld{
     static boolean[] digits;
     static int count;
     public static void main(String []args){
-        HashSet<Integer> theNumbas = new HashSet<Integer>();
+        long start = System.currentTimeMillis();
         int multiplicand;
         int sum = 0;
         for (int product = 1234;product <= 98765; product++) {
@@ -13,19 +12,17 @@ public class Euler32{
                     count = 0;
                     digits = new boolean[9];
                     if (sink(product) && sink(j) && sink(multiplicand) && count == 9) {
-                        System.out.println(product + " = " + j + " * " + multiplicand);
-                        theNumbas.add(product);
+                        sum += product;
+                        break;
                     } else {
                         continue;
                     }
                 }
             }
         }
-        for (int num : theNumbas) {
-            System.out.println(num);
-            sum += num;
-        }
+        long stop = System.currentTimeMillis();
         System.out.println("Sum = " + sum);
+        System.out.println("Time elapsed: " + (stop - start) + " ms");
     }
     
     public static boolean sink(int num) {
