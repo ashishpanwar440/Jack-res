@@ -15,7 +15,7 @@ public class MatrixScreen {
     static long INTERVAL = 10; 
     static String CHARACTERS = ""; 
     static int MAX_BRIGHTNESS = 300;
-	static int DIMMING_SPEED = 8;
+    static int DIMMING_SPEED = 8;
     static JFrame theMatrix = new JFrame("The Matrix"); //Main jframe.
     static Image bufferImg; //Off screen image to implement double buffering.
     static Graphics bufferGraph; //Graphics of the image.
