@@ -1,4 +1,4 @@
-public class HelloWorld{
+public class Euler32{
     static boolean[] digits;
     static int count;
     public static void main(String []args){
