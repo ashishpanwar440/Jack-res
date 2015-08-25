@@ -6,16 +6,19 @@ public class HelloWorld{
         int multiplicand;
         int sum = 0;
         for (int product = 1234;product <= 98765; product++) {
-            for (int j = 2; j < 987; j++) {
-                if (product % j == 0) {
-                    multiplicand = product / j;
-                    count = 0;
-                    digits = new boolean[9];
-                    if (sink(product) && sink(j) && sink(multiplicand) && count == 9) {
-                        sum += product;
-                        break;
-                    } else {
-                        continue;
+            digits = new boolean[9];
+            if (sink(product)) {
+                for (int j = 2; j < 987; j++) {
+                    if (product % j == 0) {
+                        multiplicand = product / j;
+                        count = 0;
+                        digits = new boolean[9];
+                        if (sink(product) && sink(j) && sink(multiplicand) && count == 9) {
+                            sum += product;
+                            break;
+                        } else {
+                            continue;
+                        }
                     }
                 }
             }
