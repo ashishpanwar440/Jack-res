@@ -1,10 +1,13 @@
 import java.io.File;
 import java.util.Scanner;
+import java.util.LinkedList;
 
 public class FabulousFileFinder {
     static Scanner scan = new Scanner(System.in);
     static int count = 0;
     static int previousLineLength = 0;
+    static LinkedList<String> foundList = new LinkedList<String>();
+    
     public static void main(String[] args) {
         System.out.print("What is the file called (regex is fine)? ");
         String theFileName = scan.nextLine().toLowerCase(); //File name.
@@ -12,6 +15,13 @@ public class FabulousFileFinder {
         String thePath = scan.nextLine(); //Starting directory.
         search(thePath, theFileName);//Call the recursive search in the starting directory.
         System.out.println("\nDone! " + count + " file(s) found. Gimme a cookie!");
+        if (count > 0) {
+            System.out.print("Here they be (Press ENTER):");
+            scan.nextLine();
+            for (String theName : foundList) {
+                System.out.println(theName);
+            }
+        }
     }
     
     public static void search(String path, String name) {
@@ -28,7 +38,8 @@ public class FabulousFileFinder {
                 if (disFile.isFile() && (disFile.getName().toLowerCase().matches(name) 
                         || disFile.getName().toLowerCase().contains(name))) { 
                     //Print the file path out if the name contains the name we're looking for or matches the regex.
-                    System.out.println("\n\nFound: " + disFile.getPath());
+                    System.out.println("\nFound: " + disFile.getPath());
+                    foundList.add(disFile.getPath());
                     count++;
                 } else if (disFile.isDirectory()) {
                     search(disFile.getPath(), name); //If the file is a directory then call search in that directory.
