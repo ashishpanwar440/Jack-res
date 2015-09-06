@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="background-color: #190321">
+	<script>
+		var NUMBER_OF_POTATOES = 35;
+		var taterX = new Array();
+		var taterY = new Array();
+		var taterDX = new Array();
+		var taterDY = new Array();
+		var taterDeg = new Array();
+		var taterDDeg = new Array();
+		var theTaters = new Array();
+		for (var i = 0; i < NUMBER_OF_POTATOES; i++) {
+			var newTater = document.createElement("img");
+			var sourceIndex = 1 + parseInt(Math.random() * 4.99);
+			newTater.src = "tater1" + sourceIndex + ".png";
+			newTater.style.position = "absolute";
+			newTater.style.width = 40 + Math.random() * 30 + "px";
+			newTater.style.height = "auto";
+			taterX.push(Math.random() * (window.innerWidth - 100));
+			taterY.push(Math.random() * (window.innerHeight - 100));
+			taterDeg.push(Math.random() * 360);
+			taterDX.push(Math.random() * 10 - 5);
+			taterDY.push(Math.random() * 10 - 5);
+			taterDDeg.push(Math.random() * 30 - 15);
+			newTater.className = "taters";
+			document.body.appendChild(newTater);
+			theTaters.push(newTater);
+		}
+		updateTater();
+		var timeOut = setInterval(function(){updateFrame();}, 20);
+		
+		function updateFrame() {
+			for (var i = 0; i < NUMBER_OF_POTATOES; i++) {
+				if (taterX[i] + theTaters[i].offsetWidth + taterDX[i] >= window.innerWidth - 20 && taterDX[i] > 0
+					|| taterX[i] + taterDX[i] <= 20 && taterDX[i] < 0) {
+					taterDX[i] = -taterDX[i];
+				}
+				if (taterY[i] + theTaters[i].offsetHeight + taterDY[i] >= window.innerHeight - 20 && taterDY[i] > 0
+					|| taterY[i] + taterDY[i] <= 20 && taterDY[i] < 0) {
+					taterDY[i] = -taterDY[i];
+				}
+				taterX[i] += taterDX[i];
+				taterY[i] += taterDY[i];
+				taterDeg[i] = (taterDeg[i] + taterDDeg[i]) % 360;
+			}
+			updateTater();
+		}
+		
+		function updateTater(){
+			for (var i = 0; i < NUMBER_OF_POTATOES; i++) {
+				theTaters[i].style.left = taterX[i] + "px";
+				theTaters[i].style.top = taterY[i] + "px";
+				theTaters[i].style.webkitTransform = "rotate(" + taterDeg[i] + "deg)";
+				theTaters[i].style.mozTransform = "rotate(" + taterDeg[i] + "deg)";
+				theTaters[i].style.msTransform = "rotate(" + taterDeg[i] + "deg)";
+				theTaters[i].style.oTransform = "rotate(" + taterDeg[i] + "deg)";
+				theTaters[i].style.transform = "rotate(" + taterDeg[i] + "deg)";
+			}
+		}
+	</script>
+</body>
+	
