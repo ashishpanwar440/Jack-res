@@ -42,7 +42,7 @@ body {
 #assigmentTable {
 	width: 100%;
 }
-#funList {
+.list {
 	color: #FFFFFF;
 	font-size: 1.2em;
 	text-align: left;
@@ -90,6 +90,12 @@ a:hover {
 span {
 	color: #FF0000;
 	font-weight: bold;
+}
+h3, h4 {
+	position: relative;
+	color: #FFFFFF;
+	text-align: left;
+	
 }
 .popOut {
 	-webkit-transition: -webkit-transform .4s ease;
