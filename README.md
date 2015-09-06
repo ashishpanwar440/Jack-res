@@ -1,2 +1,2 @@
 # Jack-res
-The repository that will repos your tory
+A repository that repos your tory
