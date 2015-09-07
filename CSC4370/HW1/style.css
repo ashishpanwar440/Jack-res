@@ -3,6 +3,7 @@ html, body {
 }
 body {
 	font-family: "Sans-Serif";
+	font-size: 18px;
 	text-align: center;
 }
 #mainTable{
@@ -45,15 +46,26 @@ body {
 #assigmentTable {
 	width: 100%;
 }
+#linksTable {
+	margin: auto;
+	width: 15%;
+}
 #quote {
 	font-size: 1.2em;
 	text-align: center;
+}
+.linkIcons {
+	width: 85%;
+	height: auto;
 }
 span.italicSmall {
 	font-style: italic;
 	font-weight: normal;
 	font-size: .8em;
 	color: #FFFFFF;
+}
+.stretchAcross {
+	width: 100%;
 }
 .list {
 	color: #FFFFFF;
@@ -88,7 +100,7 @@ tr.zebra:nth-child(even) {
 tr.zebra:nth-child(odd) {
 	background-color: #7400FF;
 }
-td{
+td.zebra{
 	display: block;
 }
 a {
