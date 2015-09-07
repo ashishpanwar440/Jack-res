@@ -7,6 +7,7 @@ body {
 }
 #mainTable {
 	width: 80%;
+	border: 0;
 }
 #background{
 	position: fixed;
@@ -16,8 +17,8 @@ body {
 	height: 100%;
 }
 #profileHeader {
-	left: 35%;
-	width: 30%;
+	left: 40%;
+	width: 20%;
 	text-align: center;
 	display: block;
 }
@@ -41,6 +42,16 @@ body {
 }
 #assigmentTable {
 	width: 100%;
+}
+#quote {
+	font-size: .1.2em;
+	text-align: right;
+}
+span.italicSmall {
+	font-style: italic;
+	font-weight: normal;
+	font-size: .7em;
+	color: #FFFFFF;
 }
 .list {
 	color: #FFFFFF;
@@ -81,14 +92,14 @@ td{
 a {
 	text-decoration: underline;
 	color: #FFFFFF;
-}
-a:hover {
-	color: #00FF00;
 	-webkit-transition: all .4s ease;
 	-moz-transition: all .4s ease;
 	-ms-transition: all .4s ease;
 	-o-transition: all .4s ease;
 	transition: all .4s ease;
+}
+a:hover {
+	color: #00FF00;
 }
 span {
 	color: #FF0000;
