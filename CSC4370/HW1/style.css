@@ -63,8 +63,11 @@ body {
 	-o-transition: all .4s ease;
 	transition: all .4s ease;
 }
-.taters {
-	cursor: pointer;
+.floatLeft {
+	float: left;
+}
+.floatRight {
+	float: right;
 }
 tr.zebra:nth-child(even) {
 	background-color: #FF7400;
