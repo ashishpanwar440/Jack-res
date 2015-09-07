@@ -5,9 +5,11 @@ body {
 	font-family: "Sans-Serif";
 	text-align: center;
 }
-#mainTable {
+#mainTable{
 	width: 80%;
 	border: 0;
+	text-align: center;
+	margin: auto;
 }
 #background{
 	position: fixed;
@@ -44,13 +46,13 @@ body {
 	width: 100%;
 }
 #quote {
-	font-size: .1.2em;
-	text-align: right;
+	font-size: 1.2em;
+	text-align: center;
 }
 span.italicSmall {
 	font-style: italic;
 	font-weight: normal;
-	font-size: .7em;
+	font-size: .8em;
 	color: #FFFFFF;
 }
 .list {
