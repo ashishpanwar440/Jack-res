@@ -19,7 +19,7 @@ body {
 	width: 100%;
 	height: 100%;
 }
-#profileHeader {
+#profileDiv {
 	left: 40%;
 	width: 20%;
 	text-align: center;
@@ -45,6 +45,7 @@ body {
 }
 #assigmentTable {
 	width: 100%;
+	border: 0;
 }
 #linksTable {
 	margin: auto;
@@ -53,6 +54,10 @@ body {
 #quote {
 	font-size: 1.2em;
 	text-align: center;
+}
+#stylesheetImg {
+	width: 5%;
+	height: auto;
 }
 .linkIcons {
 	width: 85%;
@@ -73,7 +78,10 @@ span.italicSmall {
 	text-align: left;
 }
 .leftAlign {
-	text-align:left;
+	text-align: left;
+}
+.rightAlign {
+	text-align: right;
 }
 .whiteText {
 	color: #FFFFFF;
@@ -87,12 +95,6 @@ span.italicSmall {
 	-ms-transition: all .4s ease;
 	-o-transition: all .4s ease;
 	transition: all .4s ease;
-}
-.floatLeft {
-	float: left;
-}
-.floatRight {
-	float: right;
 }
 tr.zebra:nth-child(even) {
 	background-color: #FF7400;
