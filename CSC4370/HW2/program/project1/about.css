@@ -1,0 +1,27 @@
+body {
+	font-family: Century Gothic;
+	margin: 0;
+	background-image: url(matrix.jpg);
+}
+
+p {
+	vertical-align: middle;
+	width: 600px;
+	margin: auto;
+	margin-top: 30px;
+	color: black;
+}
+
+#box {
+	border-radius: 25px;
+	vertical-align: middle;
+	position: relative;
+	margin: auto;
+	background-color: #DDD;
+	border-style: solid;
+	border-color: #000;
+	z-value: 1;
+	margin-top: 100px;
+	width: 620px;
+	height: 320px;
+}
