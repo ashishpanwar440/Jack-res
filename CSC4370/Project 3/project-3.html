@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--Extra features:
+		- End-of-game notification.
+		- Animations and/or transitions.
+-->
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="project-3.css">
+		<title>Project 3</title>
+		<style id="theStyleSheet">
+		</style>
+	</head>
+	<body onkeypress="keyPressed(event)">
+		<div id="divMenu">
+			<button onclick="play()" id="playButton">PLAY!</button>
+		</div>
+		<div id="divGame">
+			<div id="divPuzzleContainer">
+				<div id="divPuzzle">
+					<img src="arrow.png" id="arrow" />
+				</div>
+				<br/>
+				<button onclick="scrambleClick()" id="scrambleButton">Scramble!</button>
+			</div>
+		</div>
+		<div id="divWin1">
+		</div>
+		<div id="divWin2" onclick="fastForwardString()">
+			<p id="winText" onclick="fastForwardString()"></p>
+		</div>
+		<div id="divOption">
+			<div id="controlMusic" class="controlButton">
+				<label>
+					<input type="checkbox" onclick="controlMusic(this)" checked />
+					<div></div>
+				</label>
+			</div>
+			<div id="controlSFX" class="controlButton">
+				<label>
+					<input type="checkbox" onclick="controlSFX(this)" checked />
+					<div></div>
+				</label>
+			</div>
+		</div>
+		<script src="fifteen.js"></script>
+	</body>
+</html>

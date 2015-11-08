@@ -1,0 +1,316 @@
+body {
+	background-color: #221222;
+	font-family: Verdana;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+button {
+	color: #FFFFFF;
+	font-family: Verdana;
+	font-size: 32px;
+	background-color: #AC33EA;
+	border-radius: 30px;
+}
+
+.tile {
+	height: 96px;
+	width: 96px;
+	border: 2px solid;
+	background-size: 400px 400px;
+	background: url("background.jpg") 400px 400px no-repeat;
+	font-size: 32px;
+	display: block;
+	margin: 0;
+	position: absolute;
+}
+
+.tileText {
+	margin: auto;
+	display: block;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+#divOption {
+	left: 0;
+	position: absolute;
+	z-index: 125;
+}
+
+#divMenu, #divGame, #divWin1, #divWin2 {
+	width: 1000px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	left: 50%;
+	position: absolute;
+	top: 0;
+}
+
+#divMenu {
+	height: 733px;
+	background-image: url("secret-formula.png");
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 100;
+}
+
+#divGame {
+	height: 600px;
+	background-image: url("inside.jpg");
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 5;
+	display: none;
+}
+
+#divWin1 {
+	height: 600px;
+	background-image: url("win-1.jpg");
+	-webkit-transform: translateX(-50%) scale(0, 0);
+	-moz-transform: translateX(-50%) scale(0, 0);
+	-ms-transform: translateX(-50%) scale(0, 0);
+	-o-transform: translateX(-50%) scale(0, 0);
+	transform: translateX(-50%) scale(0, 0);
+	opacity: 0;
+	z-index: 2;
+}
+
+#divWin2 {
+	height: 750px;
+	background-image: url("win-2.jpg");
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	opacity: 0;
+	z-index: 2;
+	text-align: center;
+}
+
+#winText {
+	color: #66FFFF;
+    font-size: 38px;
+    text-shadow: 0 0 10px #3377DD;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+	font-family: Verdana;
+}
+
+#divPuzzle {
+	margin: auto;
+	width: 400px;
+	height: 400px;
+	position: relative;
+}
+
+#divPuzzleContainer {
+	position: relative;
+	height: 70%;
+	top: 46%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateY(-50%);
+}
+
+#scrambleButton {
+	background-color: #AC33EA;
+	display: none;
+}
+
+#playButton {
+	top: 40px;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+@-webkit-keyframes moveUp {
+	0%{
+		-webkit-transform: translate(-50%, 0);
+	}
+	10%{
+		-webkit-transform: translate(-50%, 5%);
+	}
+	100%{
+		-webkit-transform: translate(-50%, -100%);
+	}
+}
+
+@-webkit-keyframes moveDown {
+	0%{
+		-webkit-transform: translate(-50%, -100%);
+	}
+	80%{
+		-webkit-transform: translate(-50%, 2%);
+	}
+	100%{
+		-webkit-transform: translate(-50%, 0);
+	}
+}
+
+@-moz-keyframes moveUp {
+	0%{
+		-moz-transform: translate(-50%, 0);
+	}
+	10%{
+		-moz-transform: translate(-50%, 5%);
+	}
+	100%{
+		-moz-transform: translate(-50%, -100%);
+	}
+}
+
+@-moz-keyframes moveDown {
+	0%{
+		-moz-transform: translate(-50%, -100%);
+	}
+	80%{
+		-moz-transform: translate(-50%, 2%);
+	}
+	100%{
+		-moz-transform: translate(-50%, 0);
+	}
+}
+
+@-ms-keyframes moveUp {
+	0%{
+		-ms-transform: translate(-50%, 0);
+	}
+	10%{
+		-ms-transform: translate(-50%, 5%);
+	}
+	100%{
+		-ms-transform: translate(-50%, -100%);
+	}
+}
+
+@-ms-keyframes moveDown {
+	0%{
+		-ms-transform: translate(-50%, -100%);
+	}
+	80%{
+		-ms-transform: translate(-50%, 2%);
+	}
+	100%{
+		-ms-transform: translate(-50%, 0);
+	}
+}
+
+@-o-keyframes moveUp {
+	0%{
+		-o-transform: translate(-50%, 0);
+	}
+	10%{
+		-o-transform: translate(-50%, 5%);
+	}
+	100%{
+		-o-transform: translate(-50%, -100%);
+	}
+}
+
+@-o-keyframes moveDown {
+	0%{
+		-o-transform: translate(-50%, -100%);
+	}
+	80%{
+		-o-transform: translate(-50%, 2%);
+	}
+	100%{
+		-o-transform: translate(-50%, 0);
+	}
+}
+
+@keyframes moveUp {
+	0%{
+		transform: translate(-50%, 0);
+	}
+	10%{
+		transform: translate(-50%, 5%);
+	}
+	100%{
+		transform: translate(-50%, -100%);
+	}
+}
+
+@keyframes moveDown {
+	0%{
+		transform: translate(-50%, -100%);
+	}
+	80%{
+		transform: translate(-50%, 2%);
+	}
+	100%{
+		transform: translate(-50%, 0);
+	}
+}
+
+.movablepiece {
+	color: #006600;
+	border-color: #FF0000;
+}
+
+#arrow {
+	display: none;
+	width: 60px;
+	height: auto;
+	position: absolute;
+	z-index: 100;
+	pointer-events: none;
+}
+.controlButton {
+	width: 40px;
+	height: 40px;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.controlButton label input{
+	position: absolute;
+	top: -400px;
+}
+
+.controlButton div{
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+#controlMusic label div {
+	background-image: url("music-button-off.png");
+}
+
+#controlSFX label div {
+	background-image: url("sfx-button-off.png");
+}
+
+#controlMusic input:checked + div {
+	background-image: url("music-button.png");
+}
+
+#controlSFX input:checked + div {
+	background-image: url("sfx-button.png");
+}
