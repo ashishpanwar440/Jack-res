@@ -159,6 +159,7 @@ function win() {
 					audioWin2.play();
 					setTimeout(function() {
 						var name = prompt("Congratulations! Please enter your name to be included on the high score board!");
+						name = name.replace(/[\\\.\+\*\?\^\$\[\]\(\)\{\}\/\'\#\:\!\=\|\<\>&\n]/g, "");
 						txt = txt.replace("<players>",'');
 						txt = txt.replace("</players>",'');
 						txt = txt.trim();
