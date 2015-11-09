@@ -35,6 +35,13 @@ audioOpenning.play();
 audioOpenning.loop = true;
 audioGame.loop = true;
 audioWin2.loop = true;
+var txt;
+var nMoves = 0;
+var score = 0;
+var name= "";
+var endTime = 0;
+var timer;
+var outp = 0;
 
 function play() {
 	document.getElementById("playButton").onclick = "";
@@ -55,6 +62,21 @@ function getIndexOnGrid(element) {
 			element.className.indexOf("cell_") + "cell_".length));
 }
 
+function timer() {
+	timer = 0;
+    inter = setInterval(function () {
+		if (mode == 1) {
+			timer++;
+			outp = padZeroes(parseInt(timer / 60))
+					+ ":" + padZeroes(timer % 60);
+			document.getElementById("timer").innerHTML = outp;
+		}
+    }, 1000);
+}
+
+function padZeroes(num) {
+	return "00".substring(("" + num).length) + num;
+}
 function tileClick(event) {
 	if (mode == 1) {
 		arrow.style.display = "none";
@@ -129,12 +151,20 @@ function win() {
 			divWin1.style.opacity = 1;
 			setAttributePrefix(divWin1, "transform", "translateX(-50%) scale(1, 1)");
 			audioWin1.play();
+			getFileFromServer("score.xml");
 			setTimeout(function() {
 				divWin1.style.opacity = 0;
 				setTimeout(function() {
 					divWin2.style.opacity = 1;
 					audioWin2.play();
 					setTimeout(function() {
+						var name = prompt("Congratulations! Please enter your name to be included on the high score board!");
+						txt = txt.replace("<players>",'');
+						txt = txt.replace("</players>",'');
+						txt = txt.trim();
+						score = parseInt(100000 / (endTime + nMoves + 1));
+						var s ="<players>\n\n" + txt + "\n\n<player>\n<time>" + outp + "</time>\n<moves>" +nMoves + "</moves>\n<name>" + name + "</name>\n<score>" + score + "</score>\n</player>\n" + "\n</players>";
+						sendFile(s);
 						winTextAnimation(0);
 					}, 2000);
 				}, 1400);
@@ -194,6 +224,7 @@ function scrambleItUp() {
 			setAttributePrefix(tiles[i], "transition", "all .3s");
 		}
 		mode = 1;
+		timer();
 	} else {
 		setTimeout(scrambleItUp, nextCountDown(scrambleCount));
 	}
@@ -335,6 +366,9 @@ function revalidate() {
 			tiles[grid[i]].className += "cell_" + i;
 		}
 	}
+	if (mode == 1) {
+		document.getElementById("counter").innerHTML = "Moves: " + (++nMoves);
+	}
 }
 
 function initTiles (dominoIndex) {
@@ -408,4 +442,27 @@ function controlSFX(event) {
 	audioHydraulic.muted = state;
 	audioExplosion.muted = state;
 	audioSwoosh.muted = state;
+}
+
+function sendFile(s) {
+	var data = new FormData();
+	data.append("data", s);
+	var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new activeXObject("Microsoft.XMLHTTP");
+	xhr.open('post', 'score.php', true );
+	xhr.send(data);
+}
+
+function getFileFromServer(url) {
+	if (window.XMLHttpRequest) {
+   		xhr = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+   		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhr.onreadystatechange = function()
+	{
+		txt = xhr.responseText;	
+	};
+
+	xhr.open("GET",url);
+	xhr.send();
 }

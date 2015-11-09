@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<link rel="stylesheet" type="text/css" href="hs.css">
+		<title>Project 3</title>
+		<style id="theStyleSheet">
+		</style>
+	</head>
+<body>
+
+<h1>HIGH SCORES<h1>
+
+<script>
+var done = -1;
+
+function printTable() 
+{
+	if (window.XMLHttpRequest) {
+		xhr = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+}
+xhr.onreadystatechange = function()
+{
+	var s = xhr.responseText.indexOf("<player>");
+	if(s != -1 && done == -1) 
+	{
+		done = true;
+		var xmlDoc = new DOMParser().parseFromString(xhr.responseText,'text/xml');
+		var x=xmlDoc.getElementsByTagName("player");
+		var playerArray = Array.prototype.slice.call(x, 0);
+
+		//sort the xml objects by score for new scores
+		playerArray.sort(function(a,b) {
+			var aCat = parseInt(a.getElementsByTagName("score")[0].childNodes[0].nodeValue);
+			var bCat = parseInt(b.getElementsByTagName("score")[0].childNodes[0].nodeValue);
+			if (aCat < bCat) return 1;
+			if (aCat > bCat) return -1;
+			return 0;
+		});
+
+		var body = document.getElementsByTagName('body')[0];
+		var tbl = document.createElement('table');
+		tbl.style.width = '100%';
+		tbl.setAttribute('border', '1');
+		tbl.style.tableLayout = "fixed";
+		var tbdy = document.createElement('tbody');
+
+		//create headers
+		var tr = document.createElement('tr');
+		 var th = document.createElement('th');
+		th.appendChild(document.createTextNode("Name"))
+		tr.appendChild(th);
+		tbdy.appendChild(tr);
+
+		var th = document.createElement('th');
+		th.appendChild(document.createTextNode("Time"))
+		tr.appendChild(th);
+		tbdy.appendChild(tr); 
+
+		var th = document.createElement('th');
+		th.appendChild(document.createTextNode("Moves"))
+		tr.appendChild(th);
+		tbdy.appendChild(tr); 
+		var th = document.createElement('th');
+
+		th.appendChild(document.createTextNode("Score"))
+		tr.appendChild(th);
+		tbdy.appendChild(tr);            
+		tbdy.appendChild(tr);
+
+		for (var i = 0; i < x.length; i++) {
+			var tr = document.createElement('tr');
+			for (var j = 0; j < 4; j++) {
+				var td = document.createElement('td');
+				if(j == 0) {
+						td.appendChild(document.createTextNode(playerArray[i].getElementsByTagName("name")[0].childNodes[0].nodeValue))
+					}
+				if(j == 1)  
+					{
+						td.appendChild(document.createTextNode(playerArray[i].getElementsByTagName("time")[0].childNodes[0].nodeValue))
+					}
+				if(j == 2)  
+					{
+						td.appendChild(document.createTextNode(playerArray[i].getElementsByTagName("moves")[0].childNodes[0].nodeValue))
+					}
+				if(j == 3)  
+					{
+						td.appendChild(document.createTextNode(playerArray[i].getElementsByTagName("score")[0].childNodes[0].nodeValue))
+					}
+				tr.appendChild(td)          
+			}
+			tbdy.appendChild(tr);
+		}
+		tbl.appendChild(tbdy);
+		body.appendChild(tbl)
+    }
+};
+
+xhr.open("GET","score.xml");
+xhr.send();
+}
+window.onload = printTable;
+</script>
+
+</body>
+</html>

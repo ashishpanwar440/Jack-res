@@ -314,3 +314,55 @@ button {
 #controlSFX input:checked + div {
 	background-image: url("sfx-button.png");
 }
+
+
+#hs{
+	right: 0;
+	top: 0;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+#hs a {
+	font-family: Comic Sans MS, cursive, sans-serif;
+	font-size: 14px;
+	color:	#1AD1FF;
+	text-decoration: none;
+}
+
+#hs:hover {
+	-webkit-transform: scale(1.5, 1.5);
+	-moz-transform: scale(1.5, 1.5);
+	-ms-transform: scale(1.5, 1.5);
+	-o-transform: scale(1.5, 1.5);
+	transform: scale(1.5, 1.5);
+	font-weight: bold;
+}
+
+#timer {
+	font-family: Comic Sans MS, cursive, sans-serif;
+	font-size: 14px;
+	color:	#1AD1FF;
+}
+
+#counter {
+	font-size: 14px;
+	font-family: Comic Sans MS, cursive, sans-serif;
+	color:	#1AD1FF;
+}
+
+#count{
+	font-size: 14px;
+	font-family: Comic Sans MS, cursive, sans-serif;
+	color:	#1AD1FF;
+}
+
+#scoreBox {
+	left: 0;
+	bottom: 0;
+	position: absolute;
+	z-index: 125;
+}
